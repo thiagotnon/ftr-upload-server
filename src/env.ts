@@ -7,7 +7,7 @@ const envSchema = z.object({
 
   CLOUDLFARE_ACCOUNT_ID: z.string(),
   CLOUDLFARE_ACCESS_KEY_ID: z.string(),
-  CLOUDLFARE_SECRETE_ACCESS_KEY_ID: z.string(),
+  CLOUDLFARE_SECRETE_ACCESS_KEY: z.string(),
   CLOUDFLARE_BUCKET: z.string(),
   CLOUDFLARE_PUBLIC_URL: z.string().url(),
 })
