@@ -14,7 +14,7 @@ const uploadImageInput = z.object({
 
 type UploadImageInput = z.input<typeof uploadImageInput>
 
-const allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/web']
+const allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/webp']
 
 export async function uploadImage(
   input: UploadImageInput
@@ -22,7 +22,7 @@ export async function uploadImage(
   const { contentStream, contentType, fileName } = uploadImageInput.parse(input)
 
   if (!allowedMimeTypes.includes(contentType)) {
-    makeLeft(new InvalidFileFormat())
+    return makeLeft(new InvalidFileFormat())
   }
 
   const { key, url } = await uploadFileToStorage({
